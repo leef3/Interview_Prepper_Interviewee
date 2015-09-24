@@ -7,10 +7,16 @@ import com.blunderer.materialdesignlibrary.handlers.ActionBarHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsMenuHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerBottomHandler;
+import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerStyleHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerTopHandler;
 import com.blunderer.materialdesignlibrary.models.Account;
 
 public class MainActivity extends com.blunderer.materialdesignlibrary.activities.NavigationDrawerActivity {
+
+    @Override
+    public NavigationDrawerStyleHandler getNavigationDrawerStyleHandler() {
+        return null;
+    }
 
     @Override
     public NavigationDrawerAccountsHandler getNavigationDrawerAccountsHandler() {
@@ -23,17 +29,38 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
     }
 
     @Override
+    protected boolean enableActionBarShadow() {
+        return true;
+    }
+
+    @Override
     public void onNavigationDrawerAccountChange(Account account) {
     }
 
     @Override
     public NavigationDrawerTopHandler getNavigationDrawerTopHandler() {
+
+        QABundleFragment startQuestion = new QABundleFragment();
+
+
+        QABundleFragment startAnswer = new QABundleFragment();
+
+
+        SWBundleFragment startStrength = new SWBundleFragment();
+
+
+        SWBundleFragment startWeakness = new SWBundleFragment();
+
+
         return new NavigationDrawerTopHandler(this)
-                .addSection(R.string.fragment)
-                .addItem(R.string.fragment_listview, new ListViewFragment())
-                .addItem(R.string.fragment_scrollview, new ScrollViewFragment())
-                .addItem(R.string.fragment_viewpager, new ViewPagerFragment())
-                .addItem(R.string.fragment_viewpager_with_tabs, new ViewPagerWithTabsFragment())
+                .addSection("User Specific")
+                .addItem(R.string.fragment_scheduled, new ScheduledFragment())
+                .addItem(R.string.fragment_favorite, new FavoriteFragment())
+                .addSection("Job Generic")
+                .addItem(R.string.fragment_question, startQuestion)
+                .addItem(R.string.fragment_answered, startAnswer)
+                .addItem(R.string.fragment_strength, startStrength)
+                .addItem(R.string.fragment_weakness, startWeakness);
 
     }
 
