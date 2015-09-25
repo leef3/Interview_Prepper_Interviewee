@@ -1,7 +1,5 @@
 package studios.redleef.interviewprepperinterviewee;
 
-import android.content.Intent;
-
 import com.blunderer.materialdesignlibrary.handlers.ActionBarDefaultHandler;
 import com.blunderer.materialdesignlibrary.handlers.ActionBarHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsHandler;
@@ -54,13 +52,13 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
 
         return new NavigationDrawerTopHandler(this)
                 .addSection("User Specific")
-                .addItem(R.string.fragment_scheduled, new ScheduledFragment())
-                .addItem(R.string.fragment_favorite, new FavoriteFragment())
+                .addItem(R.string.fragment_scheduled, R.drawable.ic_scheduled, new ScheduledFragment())
+                .addItem(R.string.fragment_favorite, R.drawable.ic_favorite, new FavoriteFragment())
                 .addSection("Job Generic")
-                .addItem(R.string.fragment_question, startQuestion)
-                .addItem(R.string.fragment_answered, startAnswer)
-                .addItem(R.string.fragment_strength, startStrength)
-                .addItem(R.string.fragment_weakness, startWeakness);
+                .addItem(R.string.fragment_question, R.drawable.ic_question, startQuestion)
+                .addItem(R.string.fragment_answered, R.drawable.ic_answered, startAnswer)
+                .addItem(R.string.fragment_strength, R.drawable.ic_strength, startStrength)
+                .addItem(R.string.fragment_weakness, R.drawable.ic_weakness, startWeakness);
 
     }
 
