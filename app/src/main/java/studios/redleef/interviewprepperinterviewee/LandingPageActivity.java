@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
+import studios.redleef.interviewprepperinterviewee.DataModels.Question;
+
 
 public class LandingPageActivity extends ActionBarActivity {
 
@@ -13,6 +17,20 @@ public class LandingPageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_page);
+
+        //TEST
+        DataSave testData = new DataSave("Test", "TEST_DATA", this);
+        ArrayList<Question> testList = new ArrayList<Question>();
+        for(int x = 0; x < 20; x++)
+        {
+            Question testItem = new Question("Question Text #" + x);
+            if(x < 5 || x > 13)
+            {
+                testItem.SetAnswer("Test Answer For This Question Long Long" + x);
+            }
+            testList.add(testItem);
+        }
+        testData.SetAndSaveList(testList);
 
         Intent redirect = new Intent(this, MainActivity.class);
         startActivity(redirect);

@@ -52,6 +52,7 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
 
         return new NavigationDrawerTopHandler(this)
                 .addSection("User Specific")
+                .addItem(R.string.fragment_experience, R.drawable.ic_experience, new ExperienceFragment())
                 .addItem(R.string.fragment_scheduled, R.drawable.ic_scheduled, new ScheduledFragment())
                 .addItem(R.string.fragment_favorite, R.drawable.ic_favorite, new FavoriteFragment())
                 .addSection("Job Generic")
