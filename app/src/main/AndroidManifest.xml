@@ -9,6 +9,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LandingPageActivity"
+            android:noHistory="true"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
+
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".SingleRun.TutorialActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_tutorial" >
         </activity>
     </application>
 

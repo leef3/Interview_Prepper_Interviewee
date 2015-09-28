@@ -1,6 +1,8 @@
 package studios.redleef.interviewprepperinterviewee;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,15 +11,48 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 import studios.redleef.interviewprepperinterviewee.DataModels.Question;
+import studios.redleef.interviewprepperinterviewee.SingleRun.TutorialActivity;
 
 
-public class LandingPageActivity extends ActionBarActivity {
+public class LandingPageActivity extends Activity {
+
+    private SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.landing_page);
 
+
+        //First time setup - Check
+        boolean isFirstTime = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstTime", true);
+        if(isFirstTime)
+        {
+            //Do This
+            setContentView(R.layout.landing_page);
+
+            //Set generic questions
+            SetInitialData();
+
+            Intent redirect = new Intent(this, TutorialActivity.class);
+            startActivity(redirect);
+
+            //Show viewpager tutorial
+
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("isFirstTime", false)
+                    .commit();
+        }
+        else
+        {
+            //Not first time, skip and jump to main activity
+            Intent redirect = new Intent(this, MainActivity.class);
+            startActivity(redirect);
+        }
+    }
+
+    private void SetInitialData()
+    {
         //TEST
         DataSave testData = new DataSave("Test", "TEST_DATA", this);
         ArrayList<Question> testList = new ArrayList<Question>();
@@ -31,30 +66,5 @@ public class LandingPageActivity extends ActionBarActivity {
             testList.add(testItem);
         }
         testData.SetAndSaveList(testList);
-
-        Intent redirect = new Intent(this, MainActivity.class);
-        startActivity(redirect);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_landing_page, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
