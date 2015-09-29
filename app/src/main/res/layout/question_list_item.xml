@@ -44,7 +44,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:id="@+id/imageView2"
-                android:src="@drawable/ic_favorite" />
+                android:src="@drawable/ic_edit" />
 
             <ImageView
                 android:layout_width="45dp"

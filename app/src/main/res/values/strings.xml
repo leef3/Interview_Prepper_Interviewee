@@ -15,7 +15,9 @@
     <string name="fragment_weakness">Weaknesses</string>
 
     <!-- SAVE DATA STRINGS -->
-    <string name="DATA_SAVE_NAME">MASTER_DATA_SAVE</string>
+    <string name="QUESTION_SAVE_NAME">MASTER_QUESTION_SAVE_NAME</string>
+    <string name="STRENGTH_SAVE_NAME">MASTER_STRENGTH_SAVE_NAME</string>
+    <string name="WEAKNESS_SAVE_NAME">MASTER_WEAKNESS_SAVE_NAME</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

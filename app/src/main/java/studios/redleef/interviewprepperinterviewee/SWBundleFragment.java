@@ -15,6 +15,15 @@ import com.blunderer.materialdesignlibrary.handlers.ViewPagerHandler;
  */
 public class SWBundleFragment extends com.blunderer.materialdesignlibrary.fragments.ViewPagerWithTabsFragment {
 
+    int startPage;
+
+    public SWBundleFragment()
+    {
+        startPage = 0;
+        getArguments();
+    }
+
+
     @Override
     public ViewPagerHandler getViewPagerHandler() {
         return new ViewPagerHandler(getActivity())

@@ -42,7 +42,7 @@ public class QuestionFragment extends Fragment {
            savedInstanceState);*/
         View rootLayout = inflater.inflate(R.layout.fragment_question, container, false);
 
-        ListView questionListView = (ListView)rootLayout.findViewById(R.id.listView);
+        ListView questionListView = (ListView)rootLayout.findViewById(R.id.questionListView);
 
         LoadData();
 
@@ -58,7 +58,7 @@ public class QuestionFragment extends Fragment {
     {
         questionList = new ArrayList<Question>();
         SharedPreferences settings = getActivity().getSharedPreferences("pref", 0);
-        String objectData = settings.getString("TEST_DATA", "");
+        String objectData = settings.getString(getString(R.string.QUESTION_SAVE_NAME), "");
         if (!objectData.equals("")) {
             System.out.println("Object Data: " + objectData);
             Gson gson = new Gson();
