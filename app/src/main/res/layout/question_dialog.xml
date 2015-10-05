@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#CFD8DC"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="#607D8B"
+        android:text="Answer"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-light" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Q: This is a test question that is rarely asked"
+        android:id="@+id/questionDialogQuestion"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textIsSelectable="false"
+        android:textSize="23dp"
+        android:textColor="#3F51B5"
+        android:textStyle="italic" />
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/darker_gray" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="#ECEFF1"
+        android:id="@+id/questionDialogAnswer" />
+
+</LinearLayout>
