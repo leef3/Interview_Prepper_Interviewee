@@ -32,7 +32,8 @@
             android:textIsSelectable="false"
             android:textSize="20dp"
             android:textColor="#3F51B5"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:layout_marginRight="10dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -45,14 +46,16 @@
                 android:layout_height="35dp"
                 android:id="@+id/editButton"
                 android:src="@drawable/ic_edit"
-                android:clickable="true" />
+                android:clickable="true"
+                android:layout_marginRight="15dp" />
 
             <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:id="@+id/favoriteButton"
                 android:src="@drawable/ic_favorite"
-                android:clickable="true" />
+                android:clickable="true"
+                android:layout_marginRight="15dp" />
 
         </LinearLayout>
 
@@ -80,8 +83,10 @@
             android:text="A: This is the answer the user responded with, can be long so please account for that and more."
             android:id="@+id/questionListItemAnswer"
             android:fontFamily="sans-serif-light"
-            android:textColor="#2E7D32"
-            android:textSize="18dp" />
+            android:textColor="#B71C1C"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
     </LinearLayout>
 
 </LinearLayout>

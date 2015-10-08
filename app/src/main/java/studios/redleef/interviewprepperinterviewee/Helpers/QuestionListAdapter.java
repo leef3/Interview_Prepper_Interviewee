@@ -51,7 +51,7 @@ public class QuestionListAdapter extends BaseAdapter
 
     //Method to add the information from each Ingredient into a row in the listview.
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        final ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = this.inflater.inflate(R.layout.question_list_item, parent, false);
@@ -64,7 +64,8 @@ public class QuestionListAdapter extends BaseAdapter
             holder.favoriteButton = (ImageView) convertView.findViewById(R.id.favoriteButton);
 
             //Used to re-track the ingredient
-            holder.questionText.setTag(position);
+            holder.editButton.setTag(position);
+            holder.favoriteButton.setTag(position);
 
             convertView.setTag(holder);
         } else {
@@ -91,8 +92,7 @@ public class QuestionListAdapter extends BaseAdapter
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //int tempPosition = (Integer) v.getTag();
-                int tempPosition = 1;
+                int tempPosition = (Integer) v.getTag();
                 if(questionList.get(tempPosition).GetAnswered())
                 {
                     showDialog(questionList.get(tempPosition).GetQuestion(), questionList.get(tempPosition).GetAnswer());
@@ -101,7 +101,14 @@ public class QuestionListAdapter extends BaseAdapter
                 {
                     showDialog(questionList.get(tempPosition).GetQuestion());
                 }
+            }
+        });
 
+        holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tempPosition = (Integer) v.getTag();
+                holder.favoriteButton.setImageResource(R.drawable.ic_favorite_clicked);
             }
         });
 

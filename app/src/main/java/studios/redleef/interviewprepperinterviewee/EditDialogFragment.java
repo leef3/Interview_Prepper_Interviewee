@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class EditDialogFragment extends DialogFragment {
@@ -50,7 +51,7 @@ public class EditDialogFragment extends DialogFragment {
         if (getArguments() != null) {
             question = getArguments().getString(ARG_QUESTION);
 
-            if(!getArguments().getString(ARG_ANSWER).equals(null))
+            if(getArguments().getString(ARG_ANSWER) != null)
             {
                 answer = getArguments().getString(ARG_ANSWER);
             }
@@ -71,9 +72,9 @@ public class EditDialogFragment extends DialogFragment {
         final TextView questionText = (TextView) promptsView.findViewById(R.id.questionDialogQuestion);
         questionText.setText(question);
 
-        if(!answer.equals(null))
+        if(answer != null)
         {
-            final TextView answerText = (TextView) promptsView.findViewById(R.id.questionDialogAnswer);
+            final EditText answerText = (EditText) promptsView.findViewById(R.id.questionDialogAnswer);
             answerText.setText(answer);
         }
 
